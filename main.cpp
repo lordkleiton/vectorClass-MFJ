@@ -46,22 +46,24 @@ real Vector::getNorma(){
     return sqrt((pow(x, 2) + pow(y, 2) + pow(z, 2)));
 }
 
+//retorna a norma de um vetor passado manualmente
 real Vector::getNorma(real x, real y, real z){
     return sqrt((pow(x, 2) + pow(y, 2) + pow(z, 2)));
 }
 
+//retorna o produto escalar entre 2 vetores
 real Vector::getProdEscalar(array<real, 3> v1, array<real, 3> v2){
     real r = 0.0;
 
     for (int i = 0; i < v1.size(); i++){
-        r = r + (v1[i] * v2[i]);
+        r += (v1[i] * v2[i]);
     }
 
     return r;
 }
 
 real Vector::getAnguloVetores(real prodS, real nv1, real nv2){
-    return ((nv1 > 0.0) && (nv2 > 0.0)) ? asin(prodS/(nv1*nv2)) * 180/M_PI : 1;
+    return ((nv1 > 0.0) && (nv2 > 0.0)) ? acos(prodS/(nv1*nv2)) * (180/M_PI) : NAN;
 }
 
 /* real Vector::getNormalized(){
@@ -95,7 +97,7 @@ int main(int argc, char const *argv[])
 
     cout << "produto escalar de v1 por v2: " << v1.getProdEscalar(p1, p2) << endl;
 
-    cout << "angulo entre v1 e v2: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p2), v1.getNorma(), v2.getNorma()) << endl;  
+    cout << "angulo entre v1 e v2: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p2), v1.getNorma(), v2.getNorma()) << " graus" << endl;  
 
     return 0;
 }
