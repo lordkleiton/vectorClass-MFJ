@@ -30,7 +30,6 @@ Vector::Vector(real x, real y, real z) : x(x), y(y), z(z) {
 
 //retorna um array com as coordenadas
 array<real, 3> Vector::getCoordinates(){
-    static real r[3];
     array<real, 3> resultado;
 
     resultado[0] = x;
