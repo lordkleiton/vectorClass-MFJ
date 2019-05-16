@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <array>
+#include <math.h>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class Vector{
         static real getNorma(real x, real y, real z);
         real getNormalized();
         real getProdEscalar(array<real, 3> v1, array<real, 3> v2);
+        real getAnguloVetores(real prodS, real nv1, real nv2);
         ~Vector();
 };
 
@@ -58,6 +60,10 @@ real Vector::getProdEscalar(array<real, 3> v1, array<real, 3> v2){
     return r;
 }
 
+real Vector::getAnguloVetores(real prodS, real nv1, real nv2){
+    return ((nv1 > 0.0) && (nv2 > 0.0)) ? asin(prodS/(nv1*nv2)) * 180/M_PI : 1;
+}
+
 /* real Vector::getNormalized(){
     return 
 } */
@@ -73,8 +79,8 @@ int main(int argc, char const *argv[])
 {
     //Vector v1 = Vector(1.0, 2.0, 3.0);
     //Vector v2 = Vector(5.0, 5.0, 5.0);
-    Vector v1 = Vector(3.0, 4.0, 0.0);
-    Vector v2 = Vector(-2.0, 5.0, 0.0);
+    Vector v1 = Vector(2.0, 2.0, 0.0);
+    Vector v2 = Vector(0.0, 3.0, 0.0);
     array<real, 3> p1 = v1.getCoordinates();
     array<real, 3> p2 = v2.getCoordinates();
     string l[3] = {"x", "y", "z"};
@@ -89,6 +95,7 @@ int main(int argc, char const *argv[])
 
     cout << "produto escalar de v1 por v2: " << v1.getProdEscalar(p1, p2) << endl;
 
+    cout << "angulo entre v1 e v2: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p2), v1.getNorma(), v2.getNorma()) << endl;  
 
     return 0;
 }
