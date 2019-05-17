@@ -19,6 +19,8 @@ class Vector{
         array<real, 3> getNormalized();
         real getProdEscalar(array<real, 3> v1, array<real, 3> v2);
         real getAnguloVetores(real prodS, real nv1, real nv2);
+        real getDistanciaVetores(array<real, 3> v2);
+        static real getDistanciaVetores(array<real, 3> v1, array<real, 3> v2);
         static constexpr real unitario = 1.0;
         static constexpr real nulo = 0.0;
         ~Vector();
@@ -79,6 +81,14 @@ array<real, 3> Vector::getNormalized(){
     return r;
 }
 
+real Vector::getDistanciaVetores(array<real, 3> v2){
+    return Vector::getNorma((this->x - v2[0]), (this->y - v2[1]), (this->z - v2[2]));
+}
+
+real Vector::getDistanciaVetores(array<real, 3> v1, array<real, 3> v2){
+    return Vector::getNorma((v1[0] - v2[0]), (v1[1] - v2[1]), (v1[2] - v2[2]));
+}
+
 //destrutor
 Vector::~Vector()
 {
@@ -133,6 +143,15 @@ int main(int argc, char const *argv[])
     cout << v3.getNormalized()[2] << endl;
 
     cout << Vector::getNorma(v3.getNormalized()[0], v3.getNormalized()[1], v3.getNormalized()[2]) << endl;
+   
+    cout << "_____________ distancia entre vetores __________" << endl;   
+    Vector v5 = Vector(1.0, 2.0, 0.0);
+    Vector v6 = Vector(3.0, 1.0, 0.0);
+    array<real, 3> p5 = v5.getCoordinates();
+    array<real, 3> p6 = v6.getCoordinates();
+    cout << Vector::getDistanciaVetores(p5, p6) << endl;
+    cout << v5.getDistanciaVetores(p5) << endl;
 
+    
     return 0;
 }
