@@ -41,43 +41,30 @@ real Vector::getProdEscalar(array<real, 3> v1, array<real, 3> v2){
 }
 
 real Vector::getAnguloVetores(real prodS, real nv1, real nv2){
-    return ((nv1 > 0.0) && (nv2 > 0.0)) ? acos(prodS/(nv1*nv2)) * (180/M_PI) : NAN;
+    return ((nv1 > 0.0) && (nv2 > 0.0)) ? acos(prodS / (nv1 * nv2)) * (180 / M_PI) : NAN;
 }
 
 array<real, 3> Vector::getNormalizado(){
     array<real, 3> r;
-    real n = this->getNorma();
+    real n = getNorma();
 
-    r[0] = x/n;
-    r[1] = y/n;
-    r[2] = z/n;
+    r[0] = x / n;
+    r[1] = y / n;
+    r[2] = z / n;
 
     return r;
 }
 
 real Vector::getDistanciaVetores(array<real, 3> v2){
-    return Vector::getNorma((this->x - v2[0]), (this->y - v2[1]), (this->z - v2[2]));
+    return Vector::getNorma((x - v2[0]), (y - v2[1]), (z - v2[2]));
 }
 
 real Vector::getDistanciaVetores(array<real, 3> v1, array<real, 3> v2){
     return Vector::getNorma((v1[0] - v2[0]), (v1[1] - v2[1]), (v1[2] - v2[2]));
 }
 
-/* array<real, 3> Vector::getSomaVetores(array<real, 3> v2){
-    array<real, 3> r = {(this->x + v2[0]), (this->y + v2[1]), (this->z + v2[2])};
-
-    return r;
-}
-
-array<real, 3> Vector::getSomaVetores(array<real, 3> v1, array<real, 3> v2){
-    array<real, 3> r = {(v1[0] + v2[0]), (v1[1] + v2[1]), (v1[2] + v2[2])};
-
-    return r;
-}
- */
-
 array<real, 3> Vector::getOperacaoVetores(array<real, 3> v2, char op){
-    return this->getOperacaoVetores({this->x, this->y, this->z}, v2, op);
+    return getOperacaoVetores({x, y, z}, v2, op);
 }
 
 array<real, 3> Vector::getOperacaoVetores(array<real, 3> v1, array<real, 3> v2, char op){
