@@ -14,16 +14,16 @@ Implemente uma classe encapsulando vetores em R3
 - [] subtração
 - [] multiplicação
 - [] divisão
-- [] comprimento
-- [] distância
-- [] normatização
+- [x] comprimento
+- [x] distância
+- [x] normatização
 - [] produto por escalar
 - [] divisão por escalar
 - [x] produto escalar
 - [] produto vetorial
 - [] projeção de vetor sobre outro
 - [x] ângulo entre dois vetores
-- [] contantes de classe
+- [x] constantes de classe
 
 ## Desafio
 
