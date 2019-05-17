@@ -10,10 +10,10 @@ Implemente uma classe encapsulando vetores em R3
 - [x] recebendo x, y, z
 
 ## Métodos, operadores e atributos
-- [] adição
-- [] subtração
-- [] multiplicação
-- [] divisão
+- [x] adição
+- [x] subtração
+- [x] multiplicação
+- [x] divisão
 - [x] comprimento
 - [x] distância
 - [x] normalização
