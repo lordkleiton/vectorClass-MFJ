@@ -1,7 +1,7 @@
 #include "Vector.h"
 
 //construtor padrão
-Vector::Vector() : x(0.0), y(0.0), z(0.0){}
+Vector::Vector() : x(0.0), y(0.0), z(0.0) {}
 
 //construtor com argumentos
 Vector::Vector(real x, real y, real z) : x(x), y(y), z(z) {}
@@ -84,6 +84,45 @@ array<real, 3> Vector::getOperacaoVetores(array<real, 3> v1, array<real, 3> v2, 
     }
 
     return r;
+}
+
+Vector operator+(Vector &v1, Vector &v2){
+    Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    return Vector((p1[0] + p2[0]), (p1[1] + p2[1]), (p1[2] + p2[2]));
+}
+
+Vector operator-(Vector &v1, Vector &v2){
+    Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    return Vector((p1[0] - p2[0]), (p1[1] - p2[1]), (p1[2] - p2[2]));
+}
+
+Vector operator*(Vector &v1, Vector &v2){
+    Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    return Vector((p1[0] * p2[0]), (p1[1] * p2[1]), (p1[2] * p2[2]));}
+
+Vector operator/(Vector &v1, Vector &v2){
+    Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    return ((p2[0] != 0) && (p2[1] != 0) && (p2[2] != 0)) ? Vector((p1[0] / p2[0]), (p1[1] / p2[1]), (p1[2] / p2[2])) : Vector(NAN, NAN, NAN);
 }
 
 //destrutor

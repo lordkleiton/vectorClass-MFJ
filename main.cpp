@@ -57,16 +57,6 @@ int main(int argc, char const *argv[])
     cout << Vector::getDistanciaVetores(p5, p6) << endl;
     cout << v5.getDistanciaVetores(p5) << endl;
 
-
-   /*  cout << "_____________ soma entre vetores __________" << endl;   
-    cout << Vector::getSomaVetores({0, 1, 2}, {1, 2, 3})[0] << endl;
-    cout << Vector::getSomaVetores({0, 1, 2}, {1, 2, 3})[1] << endl;
-    cout << Vector::getSomaVetores({0, 1, 2}, {1, 2, 3})[2] << endl;
-
-    cout << v1.getSomaVetores({1, 2, 3})[0] << endl;
-    cout << v1.getSomaVetores({1, 2, 3})[1] << endl;
-    cout << v1.getSomaVetores({1, 2, 3})[2] << endl; */
-
     cout << "_____________ soma entre vetores __________" << endl;  
 
     cout << Vector::getOperacaoVetores({0, 1, 2}, {1, 2, 3}, '+')[0] << endl;
@@ -90,10 +80,19 @@ int main(int argc, char const *argv[])
     cout << Vector::getOperacaoVetores({0, 1, 2}, {1, 2, 3}, '/')[0] << endl;
     cout << Vector::getOperacaoVetores({0, 1, 2}, {1, 2, 3}, '/')[1] << endl;
     cout << Vector::getOperacaoVetores({0, 1, 2}, {1, 2, 3}, '/')[2] << endl;
-    
 
-    cout << v1.getOperacaoVetores({1, 2, 3}, '/')[0] << endl;
+    cout << "_____________ overload de operador __________" << endl;
+    Vector a = v1 + v2;
 
+    cout << a.getCoordenadas()[0] << endl;
+    cout << a.getCoordenadas()[1] << endl;
+    cout << a.getCoordenadas()[2] << endl;
+
+    Vector b = v1 / v2;
+
+    cout << b.getCoordenadas()[0] << endl;
+    cout << b.getCoordenadas()[1] << endl;
+    cout << b.getCoordenadas()[2] << endl;
 
     return 0;
 }
