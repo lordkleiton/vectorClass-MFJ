@@ -33,12 +33,10 @@ class Vector{
         static real getNorma(real x, real y, real z);
         static real getDistanciaVetores(array<real, 3> v1, array<real, 3> v2);
 
-
-        //testes
-        friend Vector operator+(Vector &v1, Vector &v2);
-        friend Vector operator-(Vector &v1, Vector &v2);
-        friend Vector operator*(Vector &v1, Vector &v2);
-        friend Vector operator/(Vector &v1, Vector &v2);
+        friend Vector operator+(const Vector &v1, const Vector &v2);
+        friend Vector operator-(const Vector &v1, const Vector &v2);
+        friend Vector operator*(const Vector &v1, const Vector &v2);
+        friend Vector operator/(const Vector &v1, const Vector &v2);
 };
 
 #endif
