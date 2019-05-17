@@ -1,5 +1,68 @@
 #include <iostream>
-#include <cmath>
+#include "Vector.h"
+
+int main(int argc, char const *argv[])
+{
+    //Vector v1 = Vector(1.0, 2.0, 3.0);
+    //Vector v2 = Vector(5.0, 5.0, 5.0);
+    Vector v1 = Vector(2.0, 2.0, 0.0);
+    Vector v2 = Vector(0.0, 3.0, 0.0);
+    Vector v3 = Vector(3.0, 4.0, 0.0);
+
+    array<real, 3> p1 = v1.getCoordinates();
+    array<real, 3> p2 = v2.getCoordinates();
+    array<real, 3> p3 = v3.getCoordinates();
+
+    string l[3] = {"x", "y", "z"};
+
+    cout << "_____________ impressão __________" << endl;
+    for (int i = 0; i < 3; i++){
+        cout << "coord " << l[i] << ": " << p1[i] << " " << p2[i] << endl;
+    }
+
+    cout << "_____________ norma __________" << endl;
+
+    cout << "norma de vetor estatico: " << Vector::getNorma(3.0, 4.0, 5.0) << endl;
+    cout << "norma do vetor v1: " << v1.getNorma() << endl;
+    cout << "norma do vetor v2: " << v2.getNorma() << endl;
+
+    cout << "_____________ produto escalar __________" << endl;
+
+    cout << "produto escalar de v1 por v2: " << v1.getProdEscalar(p1, p2) << endl;
+    cout << "produto escalar de v1 por v1: " << v1.getProdEscalar(p1, p1) << endl;
+
+
+    cout << "_____________ angulo entre vetores __________" << endl;
+
+    cout << "angulo entre v1 e v2: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p2), v1.getNorma(), v2.getNorma()) << " graus" << endl;  
+    cout << "angulo entre v2 e v3: " << v1.getAnguloVetores(v2.getProdEscalar(p2, p3), v2.getNorma(), v3.getNorma()) << " graus" << endl;  
+    cout << "angulo entre v1 e v3: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p3), v1.getNorma(), v3.getNorma()) << " graus" << endl;
+    cout << "angulo entre v1 e v3: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p1), v1.getNorma(), v1.getNorma()) << " graus" << endl;  
+
+    cout << "_____________ normalização __________" << endl;
+
+    cout << Vector::unitario << " " << v1.unitario << endl;
+
+    cout << v3.getNormalized()[0] << endl;
+    cout << v3.getNormalized()[1] << endl;
+    cout << v3.getNormalized()[2] << endl;
+
+    cout << Vector::getNorma(v3.getNormalized()[0], v3.getNormalized()[1], v3.getNormalized()[2]) << endl;
+   
+    cout << "_____________ distancia entre vetores __________" << endl;   
+    Vector v5 = Vector(1.0, 2.0, 0.0);
+    Vector v6 = Vector(3.0, 1.0, 0.0);
+    array<real, 3> p5 = v5.getCoordinates();
+    array<real, 3> p6 = v6.getCoordinates();
+    cout << Vector::getDistanciaVetores(p5, p6) << endl;
+    cout << v5.getDistanciaVetores(p5) << endl;
+
+    
+    return 0;
+}
+
+
+/* #include <cmath>
 #include <array>
 #include <math.h>
 
@@ -95,63 +158,4 @@ Vector::~Vector()
     //cout << "objeto destruido" << endl;
 }
 
-
-int main(int argc, char const *argv[])
-{
-    //Vector v1 = Vector(1.0, 2.0, 3.0);
-    //Vector v2 = Vector(5.0, 5.0, 5.0);
-    Vector v1 = Vector(2.0, 2.0, 0.0);
-    Vector v2 = Vector(0.0, 3.0, 0.0);
-    Vector v3 = Vector(3.0, 4.0, 0.0);
-
-    array<real, 3> p1 = v1.getCoordinates();
-    array<real, 3> p2 = v2.getCoordinates();
-    array<real, 3> p3 = v3.getCoordinates();
-
-    string l[3] = {"x", "y", "z"};
-
-    cout << "_____________ impressão __________" << endl;
-    for (int i = 0; i < 3; i++){
-        cout << "coord " << l[i] << ": " << p1[i] << " " << p2[i] << endl;
-    }
-
-    cout << "_____________ norma __________" << endl;
-
-    cout << "norma de vetor estatico: " << Vector::getNorma(3.0, 4.0, 5.0) << endl;
-    cout << "norma do vetor v1: " << v1.getNorma() << endl;
-    cout << "norma do vetor v2: " << v2.getNorma() << endl;
-
-    cout << "_____________ produto escalar __________" << endl;
-
-    cout << "produto escalar de v1 por v2: " << v1.getProdEscalar(p1, p2) << endl;
-    cout << "produto escalar de v1 por v1: " << v1.getProdEscalar(p1, p1) << endl;
-
-
-    cout << "_____________ angulo entre vetores __________" << endl;
-
-    cout << "angulo entre v1 e v2: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p2), v1.getNorma(), v2.getNorma()) << " graus" << endl;  
-    cout << "angulo entre v2 e v3: " << v1.getAnguloVetores(v2.getProdEscalar(p2, p3), v2.getNorma(), v3.getNorma()) << " graus" << endl;  
-    cout << "angulo entre v1 e v3: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p3), v1.getNorma(), v3.getNorma()) << " graus" << endl;
-    cout << "angulo entre v1 e v3: " << v1.getAnguloVetores(v1.getProdEscalar(p1, p1), v1.getNorma(), v1.getNorma()) << " graus" << endl;  
-
-    cout << "_____________ normalização __________" << endl;
-
-    cout << Vector::unitario << " " << v1.unitario << endl;
-
-    cout << v3.getNormalized()[0] << endl;
-    cout << v3.getNormalized()[1] << endl;
-    cout << v3.getNormalized()[2] << endl;
-
-    cout << Vector::getNorma(v3.getNormalized()[0], v3.getNormalized()[1], v3.getNormalized()[2]) << endl;
-   
-    cout << "_____________ distancia entre vetores __________" << endl;   
-    Vector v5 = Vector(1.0, 2.0, 0.0);
-    Vector v6 = Vector(3.0, 1.0, 0.0);
-    array<real, 3> p5 = v5.getCoordinates();
-    array<real, 3> p6 = v6.getCoordinates();
-    cout << Vector::getDistanciaVetores(p5, p6) << endl;
-    cout << v5.getDistanciaVetores(p5) << endl;
-
-    
-    return 0;
-}
+ */
