@@ -100,5 +100,12 @@ int main(int argc, char const *argv[])
     cout << b1.getCoordenadas()[1] << endl;
     cout << b1.getCoordenadas()[2] << endl;
 
+    Vector aa = Vector(1.0, 7.0, 0.0);
+    Vector bb = Vector(2.0, -3.0, 0.0);
+
+    real uh = aa ^ bb;
+
+    cout << uh << endl;
+
     return 0;
 }

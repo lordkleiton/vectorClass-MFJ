@@ -142,5 +142,23 @@ Vector operator/(const Vector &v1, real valor){
     return (valor != 0.0) ? Vector((p1[0] / valor), (p1[1] / valor), (p1[2] / valor)) : Vector(NAN, NAN, NAN);
 }
 
+
+//fazer o produto vetorial aqui
+real operator^(const Vector &v1, const Vector &v2){
+    /* Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    real r = 0.0;
+
+    for (int i = 0; i < p1.size(); i++){
+        r += p1[i] * p2[i];
+    }
+
+    return r; */
+}
+
 //destrutor
 Vector::~Vector(){}
