@@ -94,5 +94,11 @@ int main(int argc, char const *argv[])
     cout << b.getCoordenadas()[1] << endl;
     cout << b.getCoordenadas()[2] << endl;
 
+    Vector b1 = v1 * 2.0;
+
+    cout << b1.getCoordenadas()[0] << endl;
+    cout << b1.getCoordenadas()[1] << endl;
+    cout << b1.getCoordenadas()[2] << endl;
+
     return 0;
 }

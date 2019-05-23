@@ -126,5 +126,21 @@ Vector operator/(const Vector &v1, const Vector &v2){
     return ((p2[0] != 0.0) && (p2[1] != 0.0) && (p2[2] != 0.0)) ? Vector((p1[0] / p2[0]), (p1[1] / p2[1]), (p1[2] / p2[2])) : Vector(NAN, NAN, NAN);
 }
 
+Vector operator*(const Vector &v1, real valor){
+    Vector a1 = v1;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+
+    return Vector((p1[0] * valor), (p1[1] * valor), (p1[2] * valor));
+}
+
+Vector operator/(const Vector &v1, real valor){
+    Vector a1 = v1;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+
+    return (valor != 0.0) ? Vector((p1[0] / valor), (p1[1] / valor), (p1[2] / valor)) : Vector(NAN, NAN, NAN);
+}
+
 //destrutor
 Vector::~Vector(){}

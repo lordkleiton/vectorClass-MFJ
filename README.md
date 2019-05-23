@@ -17,8 +17,8 @@ Implemente uma classe encapsulando vetores em R3
 - [x] comprimento
 - [x] distância
 - [x] normalização
-- [] produto por escalar
-- [] divisão por escalar
+- [x] produto por escalar
+- [x] divisão por escalar
 - [x] produto escalar
 - [] produto vetorial
 - [] projeção de vetor sobre outro

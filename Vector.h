@@ -37,6 +37,9 @@ class Vector{
         friend Vector operator-(const Vector &v1, const Vector &v2);
         friend Vector operator*(const Vector &v1, const Vector &v2);
         friend Vector operator/(const Vector &v1, const Vector &v2);
+
+        friend Vector operator*(const Vector &v1, real valor);
+        friend Vector operator/(const Vector &v1, real valor);
 };
 
 #endif
