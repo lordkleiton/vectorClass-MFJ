@@ -1,6 +1,4 @@
 #include "Vector2.h"
-#include <iostream>
-
 
 Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3) {}
 
@@ -41,4 +39,19 @@ void Vector::imprime(){
     vetor c = coordenadas();
 
     for (int i = 0; i < dimensao; i++) printf("Coordenada %s: %.2f \n", o[i].c_str(), c[i]);
+}
+
+real Vector::norma(Vector& v1){
+    real r = 0.0;
+    vetor v = v1.coordenadas();
+
+    for (int i = 0; i < v1.dimensao; i++){
+        r += pow(v[i], 2);
+    }
+
+    return sqrt(r);
+}
+
+real Vector::norma(){
+    return Vector::norma(*this);
 }

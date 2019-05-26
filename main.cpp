@@ -123,5 +123,9 @@ int main(int argc, char const *argv[])
     cout << g.getCoordenadas()[1] << endl;
     cout << g.getCoordenadas()[2] << endl;
 
+    //Vector v = Vector(1, 2, 3);
+
+    //cout << v.getNorma() << endl;
+
     return 0;
 }

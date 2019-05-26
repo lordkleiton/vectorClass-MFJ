@@ -25,18 +25,18 @@ class Vector{
         ~Vector();
 
         vetor coordenadas();                                            //coordenadas do vetor
+        void imprime();
 
         real norma();                                                   //norma do vetor
         real prodEscalar(const Vector& v2);                             //produto escalar entre o vetor e outro
         real angulo(real produtoEscalar, real normaV1, real normaV2);
         real distancia(const Vector& v2);
 
-        void imprime();
 
         Vector normalizado();                                           //normaliza um vetor
         Vector projecao(const Vector& v2);                              //projeta um vetor em outro
 
-        static real norma(const Vector& v1);                            //norma de um vetor
+        static real norma(Vector& v1);                            //norma de um vetor
         static real distancia(const Vector& v1, const Vector& v2);      //distância entre dois vetores
         static Vector projecao(const Vector& v1, const Vector& v2);     //projeta um vetor em outro
         static real prodEscalar(const Vector& v1, const Vector& v2);           //produto escalar entre dois vetores
