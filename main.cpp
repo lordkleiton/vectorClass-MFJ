@@ -5,8 +5,6 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    //Vector v1 = Vector(1.0, 2.0, 3.0);
-    //Vector v2 = Vector(5.0, 5.0, 5.0);
     Vector v1 = Vector(2.0, 2.0, 0.0);
     Vector v2 = Vector(0.0, 3.0, 0.0);
     Vector v3 = Vector(3.0, 4.0, 0.0);
