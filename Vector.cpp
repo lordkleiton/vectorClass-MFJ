@@ -1,4 +1,4 @@
-#include "Vector2.h"
+#include "Vector.h"
 
 Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3), coord(coordenadas()) {}
 
