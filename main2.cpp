@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
 
     divisor;
 
-    cout << v2.distancia(teste) << endl;
+    cout << "Distancia entre os vetores v2 e teste: " << v2.distancia(teste) << endl;
 
     return 0;
 }
