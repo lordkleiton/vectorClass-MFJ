@@ -8,6 +8,7 @@
 
 typedef double real;
 typedef std::vector<real> vetor;
+typedef std::vector<std::string> texto;
 
 class Vector{
     public:
@@ -16,25 +17,32 @@ class Vector{
         static constexpr real nulo = 0.0;
         static constexpr real unitario = 1.0;
 
+        //contrutores
         Vector();
         Vector(real x, real y);
         Vector(real x, real y, real z);
         Vector(real x, real y, real z, real w);
         ~Vector();
 
-        vetor normalizado();
-        vetor coordenadas();
+        vetor coordenadas();                                            //coordenadas do vetor
 
-        real norma();
-        real prodEscalar(const Vector& v1, const Vector& v2);
+        real norma();                                                   //norma do vetor
+        real prodEscalar(const Vector& v2);                             //produto escalar entre o vetor e outro
         real angulo(real produtoEscalar, real normaV1, real normaV2);
         real distancia(const Vector& v2);
 
-        Vector projecao(const Vector& v2);
+        void imprime();
 
-        static real norma(real x, real y, real z);
-        static real distancia(const Vector& v1, const Vector& v2);
-        static Vector projecao(const Vector& v1, const Vector& v2);
+        Vector normalizado();                                           //normaliza um vetor
+        Vector projecao(const Vector& v2);                              //projeta um vetor em outro
+
+        static real norma(const Vector& v1);                            //norma de um vetor
+        static real distancia(const Vector& v1, const Vector& v2);      //distância entre dois vetores
+        static Vector projecao(const Vector& v1, const Vector& v2);     //projeta um vetor em outro
+        static real prodEscalar(const Vector& v1, const Vector& v2);           //produto escalar entre dois vetores
+        //static real angulo(real produtoEscalar, real normaV1, real normaV2);
+
+
 
 
 
@@ -56,6 +64,9 @@ class Vector{
         static real getNorma(real x, real y, real z);
         static real getDistanciaVetores(std::array<real, 3> v1, std::array<real, 3> v2);
 
+        Vector getProjVetores(const Vector& v1, const Vector& v2);
+        Vector getProjVetores(const Vector& v2);
+
         friend Vector operator+(const Vector& v1, const Vector& v2);
         friend Vector operator-(const Vector& v1, const Vector& v2);
         friend Vector operator*(const Vector& v1, const Vector& v2);
@@ -66,8 +77,6 @@ class Vector{
 
         friend Vector operator^(const Vector& v1, const Vector& v2);
 
-        Vector getProjVetores(const Vector& v1, const Vector& v2);
-        Vector getProjVetores(const Vector& v2);
 
 };
 
