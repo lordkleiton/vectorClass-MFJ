@@ -198,7 +198,7 @@ Vector operator+(const Vector &v1, const Vector& v2){
 
     vetor a(v1.dimensao);
 
-    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] - v2.coord[i];
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] + v2.coord[i];
 
     return Vector(a);
 }
@@ -208,7 +208,7 @@ Vector operator-(const Vector &v1, const Vector& v2){
 
     vetor a(v1.dimensao);
 
-    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] + v2.coord[i];
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] - v2.coord[i];
 
     return Vector(a);
 }

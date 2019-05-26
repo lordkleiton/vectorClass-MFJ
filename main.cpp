@@ -47,33 +47,211 @@ void testes(){
     divisor;
 }
 
+void operacao(Vector& v1, Vector& v2, int o){
+    Vector r;
+    real a = 0;
+    int o2 = 0;
+    real escalar = 0;
+
+    switch(o){
+        case 0: 
+            r = v1 + v2;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 1:
+            cout << "0 - (v1 - v2)" << endl;
+            cout << "1 - (v2 - v1)" << endl;
+            cout << "Escolha a operação a ser executada (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            r = (o2 == 0) ? v1 - v2 : v2 - v1;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 2:
+            r = v1 * v2;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 3: 
+            cout << "0 - (v1 / v2)" << endl;
+            cout << "1 - (v2 / v1)" << endl;
+            cout << "Escolha a operação a ser executada (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            r = (o2 == 0) ? v1 / v2 : v2 / v1;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 4:
+            cout << "0 - Vetor v1" << endl;
+            cout << "1 - Vetor v2" << endl;
+            cout << "Escolha o vetor a ser dada a norma (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            a = (o2 == 0) ? v1.norma() : v2.norma();
+
+            cout << "A norma do vetor é: " << a << endl;
+            break;
+        case 5:
+            cout << endl;
+            cout << "A distância entre v1 e v2 é " << v1.distancia(v2) << endl;
+            break;
+        case 6:
+            cout << "0 - Vetor v1" << endl;
+            cout << "1 - Vetor v2" << endl;
+            cout << "Escolha o vetor a ser normalizado (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            r = (o2 == 0) ? v1.normalizado() : v2.normalizado();
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 7:
+            cout << "0 - Vetor v1" << endl;
+            cout << "1 - Vetor v2" << endl;
+            cout << "Escolha o vetor a ser multiplicado (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            cout << "Digite o escalar: ";
+            cin >> escalar;
+
+            r = (o2 == 0) ? v1 * escalar : v2 * escalar;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 8:
+            cout << "0 - Vetor v1" << endl;
+            cout << "1 - Vetor v2" << endl;
+            cout << "Escolha o vetor a ser dividido (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            cout << "Digite o escalar: ";
+            cin >> escalar;
+
+            r = (o2 == 0) ? v1 * escalar : v2 / escalar;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 9:
+            cout << "0 - v1 escalar v2" << endl;
+            cout << "1 - v2 escalar v1" << endl;
+            cout << "Escolha uma operação (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            r = (o2 == 0) ? v1 ^ v2 : v2 ^ v1;
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 10:
+            cout << "0 - v1 projetado em v2" << endl;
+            cout << "1 - v2 projetado em v1" << endl;
+            cout << "Escolha uma operação (0 ou 1): ";
+            cin >> o2;
+
+            while (o2 != 0 && o2 != 1){
+                cout << "Digite uma opção válida (0 ou 1): ";
+                cin >> o2;
+            }
+
+            r = (o2 == 0) ? v1.projecao(v2) : v2.projecao(v1);
+            cout << endl;
+            cout << "O vetor resultante da operação possui as seguintes características:" << endl;
+            r.imprime();
+            break;
+        case 11:
+            cout << endl;
+            cout << "O ângulo entre v1 e v2 é de " << v1.angulo(v2) << "º" << endl;
+            break;
+    }
+
+    cout << endl;
+}
+
 void menuOperacoes(Vector& v1, Vector& v2){
     int o = 0;
 
+    divisor;
+    cout << endl;
+    cout << "v1 = {";
+    for (int i = 0; i < v1.dimensao; i++){
+        cout << v1.coord[i];
+        if (i < (v1.dimensao - 1)) cout << ", ";
+    }
+    cout << "}" << endl;
+    cout << "v2 = {";
+    for (int i = 0; i < v2.dimensao; i++){
+        cout << v2.coord[i];
+        if (i < (v2.dimensao - 1)) cout << ", ";
+    }
+    cout << "}" << endl;
+    cout << endl;
     cout << "Operações disponíveis:" << endl;
     cout << "0  - Adição" << endl;
     cout << "1  - Subtração" << endl;
     cout << "2  - Multiplicação" << endl;
-    cout << "3  - Comprimento" << endl;
-    cout << "4  - Distância" << endl;
-    cout << "5  - Normalização" << endl;
-    cout << "6  - Produto por escalar" << endl;
-    cout << "7  - Divisão por escalar" << endl;
-    cout << "8  - Produto vetorial" << endl;
-    cout << "9  - Projeção de vetor sobre o outro" << endl;
-    cout << "10 - Ângulo entre os vetores" << endl;
-    cout << "Insira a opção desejada (0 à 10): ";
+    cout << "3  - Divisão" << endl;
+    cout << "4  - Comprimento" << endl;
+    cout << "5  - Distância" << endl;
+    cout << "6  - Normalização" << endl;
+    cout << "7  - Produto por escalar" << endl;
+    cout << "8  - Divisão por escalar" << endl;
+    cout << "9  - Produto vetorial" << endl;
+    cout << "10 - Projeção de vetor sobre o outro" << endl;
+    cout << "11 - Ângulo entre os vetores" << endl;
+    cout << "Insira a opção desejada (0 à 11): ";
     cin >> o;
 
-    while (o < 0 || o > 10){
-        cout << "Digite uma opção válida (0 à 10): ";
+    while (o < 0 || o > 11){
+        cout << "Digite uma opção válida (0 à 11): ";
         cin >> o;
     }
 
-    cout << o << endl;
-
-    v1.imprime();
-
+    operacao(v1, v2, o);
 }
 
 void insereManual(){
@@ -115,7 +293,9 @@ void insereManual(){
     Vector vec1 = Vector(v1);
     Vector vec2 = Vector(v2);
 
-    menuOperacoes(vec1, vec2);
+    while (true){
+        menuOperacoes(vec1, vec2);
+    }
 }
 
 void menu(){
@@ -137,8 +317,8 @@ void menu(){
     if (o == 0) insereManual();
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
     menu();
+
     return 0;
 }

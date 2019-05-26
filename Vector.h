@@ -51,7 +51,7 @@ class Vector{
         friend Vector operator-(const Vector& v1, const Vector& v2);            //subtração de vetor por vetor
         friend Vector operator*(const Vector& v1, const Vector& v2);            //multiplicação de vetor por vetor
         friend Vector operator/(const Vector& v1, const Vector& v2);            //divisão de vetor por vetor
-        friend Vector operator^(const Vector& v1, const Vector& v2);            //produto vetorial
+        friend Vector operator^(Vector& v1, Vector& v2);            //produto vetorial
 };
 
 #endif
