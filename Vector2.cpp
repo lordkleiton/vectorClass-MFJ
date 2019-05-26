@@ -1,7 +1,6 @@
 #include "Vector2.h"
 
-Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3), coord(coordenadas()) {
-}
+Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3), coord(coordenadas()) {}
 
 Vector::Vector(real x, real y) : x(x), y(y), dimensao(2), coord(coordenadas()) {}
 
@@ -192,4 +191,34 @@ Vector operator/(const Vector &v1, const Vector& v2){
     }
 
     return Vector(a);
+}
+
+Vector operator+(const Vector &v1, const Vector& v2){
+    if (v1.dimensao != v2.dimensao) return Vector::invalido();
+
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] - v2.coord[i];
+
+    return Vector(a);
+}
+
+Vector operator-(const Vector &v1, const Vector& v2){
+    if (v1.dimensao != v2.dimensao) return Vector::invalido();
+
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] + v2.coord[i];
+
+    return Vector(a);
+}
+
+Vector operator^(Vector &v1, Vector &v2){
+    if (v1.dimensao != 3) return Vector::invalido();
+    if (v1.dimensao != v2.dimensao) return Vector::invalido();
+
+    vetor a1 = v1.coord;
+    vetor a2 = v2.coord;
+
+    return Vector((a1[1] * a2[2] - a1[2] * a2[1]), (a1[2] * a2[0] - a1[0] * a2[2]), (a1[0] * a2[1] - a1[1] * a2[0]));
 }
