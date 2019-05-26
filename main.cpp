@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Vector.h"
 
+using namespace std;
+
 int main(int argc, char const *argv[])
 {
     //Vector v1 = Vector(1.0, 2.0, 3.0);
@@ -113,10 +115,15 @@ int main(int argc, char const *argv[])
     cout << uh.getCoordenadas()[2] << endl;
 
     Vector f = uh.getProjVetores(aaa, bbb);
+    Vector g = aaa.getProjVetores(bbb);
 
     cout << f.getCoordenadas()[0] << endl;
     cout << f.getCoordenadas()[1] << endl;
     cout << f.getCoordenadas()[2] << endl;
+
+    cout << g.getCoordenadas()[0] << endl;
+    cout << g.getCoordenadas()[1] << endl;
+    cout << g.getCoordenadas()[2] << endl;
 
     return 0;
 }
