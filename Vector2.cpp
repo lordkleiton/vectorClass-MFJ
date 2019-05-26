@@ -109,14 +109,16 @@ real Vector::angulo(Vector& v2){
 real Vector::distancia(Vector& v1, Vector& v2){
     if (v1.dimensao != v2.dimensao) return NAN;
 
-    
+    vetor a(v1.dimensao);
 
-    Vector a = Vector(0, 1, 2);
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] - v2.coord[i];
 
-    return Vector::norma(a);
+    Vector v = Vector(a);
+
+    return Vector::norma(v);
 }
 
 real Vector::distancia(Vector& v2){
-
+    return distancia(*this, v2);
 }
 

@@ -29,11 +29,15 @@ int main(int argc, char const *argv[])
 
     divisor;
 
-    vetor a = {1, 2, 3, 5};
+    vetor a = {2, 1};
 
     Vector teste = Vector(a);
 
     teste.imprime();
+
+    divisor;
+
+    cout << v2.distancia(teste) << endl;
 
     return 0;
 }
