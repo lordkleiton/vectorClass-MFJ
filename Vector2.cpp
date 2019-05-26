@@ -1,12 +1,13 @@
 #include "Vector2.h"
 
-Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3) {}
+Vector::Vector() : x(0.0), y(0.0), z(0.0), dimensao(3), coord(coordenadas()) {
+}
 
-Vector::Vector(real x, real y) : x(x), y(y), dimensao(2) {}
+Vector::Vector(real x, real y) : x(x), y(y), dimensao(2), coord(coordenadas()) {}
 
-Vector::Vector(real x, real y, real z) : x(x), y(y), z(z), dimensao(3) {}
+Vector::Vector(real x, real y, real z) : x(x), y(y), z(z), dimensao(3), coord(coordenadas()) {}
 
-Vector::Vector(real x, real y, real z, real w) : x(x), y(y), z(z), w(w), dimensao(4) {}
+Vector::Vector(real x, real y, real z, real w) : x(x), y(y), z(z), w(w), dimensao(4), coord(coordenadas()) {}
 
 Vector::~Vector(){}
 
@@ -34,11 +35,14 @@ vetor Vector::coordenadas(){
     return r;
 }
 
+void Vector::atualiza(){
+    coord = coordenadas();
+}
+
 void Vector::imprime(){
     texto o = {"x", "y", "z", "w"};
-    vetor c = coordenadas();
 
-    for (int i = 0; i < dimensao; i++) printf("Coordenada %s: %.2f \n", o[i].c_str(), c[i]);
+    for (int i = 0; i < dimensao; i++) printf("Coordenada %s: %.2f \n", o[i].c_str(), coord[i]);
 }
 
 real Vector::norma(Vector& v1){
@@ -53,5 +57,28 @@ real Vector::norma(Vector& v1){
 }
 
 real Vector::norma(){
-    return Vector::norma(*this);
+    return norma(*this);
 }
+
+real Vector::prodEscalar(Vector& v1, Vector& v2){
+    if (v1.dimensao != v2.dimensao) return NAN;
+
+    real r = 0.0;
+    
+    for (int i = 0; i < v1.dimensao; i++) r += v1.coord[i] * v2.coord[i];
+
+    return r;
+}
+
+real Vector::prodEscalar(Vector& v2){
+    return prodEscalar(*this, v2);
+}
+
+real Vector::angulo(real produtoEscalar, real normaV1, real normaV2){
+    return ((normaV1 > 0.0) && (normaV2 > 0.0)) ? acos(produtoEscalar / (normaV1 * normaV2)) * (180 / M_PI) : NAN;
+}
+
+real Vector::angulo(Vector& v2){
+    return angulo(prodEscalar(v2), norma(), v2.norma());
+}
+

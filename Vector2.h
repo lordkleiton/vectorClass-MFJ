@@ -14,6 +14,7 @@ class Vector{
     public:
         real x, y, z, w;
         int dimensao;
+        vetor coord;
         static constexpr real nulo = 0.0;
         static constexpr real unitario = 1.0;
 
@@ -24,22 +25,26 @@ class Vector{
         Vector(real x, real y, real z, real w);
         ~Vector();
 
+
         vetor coordenadas();                                            //coordenadas do vetor
+        void atualiza();
         void imprime();
 
         real norma();                                                   //norma do vetor
-        real prodEscalar(const Vector& v2);                             //produto escalar entre o vetor e outro
-        real angulo(real produtoEscalar, real normaV1, real normaV2);
-        real distancia(const Vector& v2);
+        real prodEscalar(Vector& v2);                             //produto escalar entre o vetor e outro
+        real angulo(Vector& v2);
+        real distancia(Vector& v2);
 
 
         Vector normalizado();                                           //normaliza um vetor
-        Vector projecao(const Vector& v2);                              //projeta um vetor em outro
+        Vector projecao(Vector& v2);                              //projeta um vetor em outro
 
         static real norma(Vector& v1);                            //norma de um vetor
-        static real distancia(const Vector& v1, const Vector& v2);      //distância entre dois vetores
-        static Vector projecao(const Vector& v1, const Vector& v2);     //projeta um vetor em outro
-        static real prodEscalar(const Vector& v1, const Vector& v2);           //produto escalar entre dois vetores
+        static real distancia(Vector& v1, Vector& v2);      //distância entre dois vetores
+        static Vector projecao(Vector& v1, Vector& v2);     //projeta um vetor em outro
+        static real prodEscalar(Vector& v1, Vector& v2);           //produto escalar entre dois vetores
+        static real angulo(real produtoEscalar, real normaV1, real normaV2);
+
         //static real angulo(real produtoEscalar, real normaV1, real normaV2);
 
 

@@ -10,15 +10,26 @@ int main(int argc, char const *argv[])
     Vector v1 = Vector();
     Vector v2 = Vector(1.0, 2.0);
     Vector v3 = Vector(1.0, 2.0, 3.0);
-    Vector v4 = Vector(1.1, 2.1, 3.1, 4.5);
+    Vector v4 = Vector(2.0, 2.0, 2.0);
+    Vector v5 = Vector(1.1, 2.1, 3.1, 4.5);
 
-    v4.imprime();
+    v3.imprime();
+
+    divisor;
+
+    cout << "Norma do v3: " << v3.norma() << endl;
 
     divisor;
 
-    cout << "Norma do v4: " << v4.norma() << endl;
+    cout << "Produto escalar entre v3 e v4: " << v3.prodEscalar(v4) << endl;
 
     divisor;
+
+    cout << "Angulo entre v3 e v4: " << v3.angulo(v4) << endl;
+
+    divisor;
+
+
 
     return 0;
 }
