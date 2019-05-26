@@ -11,8 +11,9 @@ typedef std::vector<real> vetor;
 typedef std::vector<std::string> texto;
 
 class Vector{
-    public:
+    private:
         real x, y, z, w;
+    public:
         int dimensao;
         vetor coord;
         static constexpr real nulo = 0.0;
@@ -32,19 +33,31 @@ class Vector{
         void imprime();
 
         real norma();                                                   //norma do vetor
-        real prodEscalar(Vector& v2);                             //produto escalar entre o vetor e outro
-        real angulo(Vector& v2);
-        real distancia(Vector& v2);
-
-
-        Vector normalizado();                                           //normaliza um vetor
-        Vector projecao(Vector& v2);                              //projeta um vetor em outro
-
         static real norma(Vector& v1);                            //norma de um vetor
-        static real distancia(Vector& v1, Vector& v2);      //distância entre dois vetores
-        static Vector projecao(Vector& v1, Vector& v2);     //projeta um vetor em outro
+
+        real prodEscalar(Vector& v2);                             //produto escalar entre o vetor e outro
         static real prodEscalar(Vector& v1, Vector& v2);           //produto escalar entre dois vetores
+
+        real angulo(Vector& v2);
         static real angulo(real produtoEscalar, real normaV1, real normaV2);
+
+        real distancia(Vector& v2);
+        static real distancia(Vector& v1, Vector& v2);      //distância entre dois vetores
+
+        static Vector invalido();
+
+        Vector normalizado();    
+        static Vector normalizado(Vector& v1);                                           //normaliza um vetor
+                                               //normaliza um vetor
+
+        Vector projecao(Vector& v2);                              //projeta um vetor em outro
+        static Vector projecao(Vector& v1, Vector& v2);     //projeta um vetor em outro
+
+        void setX(real valor);
+        void setY(real valor);
+        void setZ(real valor);
+        void setW(real valor);
+
 
         //static real angulo(real produtoEscalar, real normaV1, real normaV2);
 

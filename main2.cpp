@@ -39,5 +39,13 @@ int main(int argc, char const *argv[])
 
     cout << "Distancia entre os vetores v2 e teste: " << v2.distancia(teste) << endl;
 
+    divisor;
+
+    Vector z = teste / 2;
+
+    z.imprime();
+
+    divisor;
+
     return 0;
 }

@@ -122,3 +122,74 @@ real Vector::distancia(Vector& v2){
     return distancia(*this, v2);
 }
 
+Vector Vector::invalido(){
+    return Vector(NAN, NAN, NAN);
+}
+
+Vector Vector::normalizado(Vector& v1){
+    real n = v1.norma();
+
+    if (n == 0) return v1.invalido();
+    
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] / n;
+
+    return Vector(a);
+}
+
+Vector Vector::normalizado(){
+    return normalizado(*this);
+}
+
+Vector Vector::projecao(Vector& v1, Vector& v2){
+    real s = Vector::prodEscalar(v1, v2) / pow(Vector::norma(v2), 2);
+
+    return v2 * s;
+}
+
+Vector Vector::projecao(Vector& v2){
+    return projecao(*this, v2);
+}
+
+Vector operator*(const Vector &v1, real valor){
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] * valor;
+
+    return Vector(a);
+}
+
+Vector operator*(const Vector &v1, const Vector& v2){
+    if (v1.dimensao != v2.dimensao) return Vector::invalido();
+
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] * v2.coord[i];
+
+    return Vector(a);
+}
+
+Vector operator/(const Vector& v1, real valor){
+    if (valor == 0) return Vector::invalido();
+
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++) a[i] = v1.coord[i] / valor;
+
+    return Vector(a);
+}
+
+Vector operator/(const Vector &v1, const Vector& v2){
+    if (v1.dimensao != v2.dimensao) return Vector::invalido();
+
+    vetor a(v1.dimensao);
+
+    for (int i = 0; i < v1.dimensao; i++){
+        if (v2.coord[i] == 0) return Vector::invalido();
+
+        a[i] = v1.coord[i] / v2.coord[i];
+    }
+
+    return Vector(a);
+}
