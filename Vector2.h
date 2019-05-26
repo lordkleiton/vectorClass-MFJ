@@ -23,6 +23,7 @@ class Vector{
         Vector(real x, real y);
         Vector(real x, real y, real z);
         Vector(real x, real y, real z, real w);
+        Vector(vetor v);
         ~Vector();
 
 

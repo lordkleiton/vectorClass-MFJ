@@ -9,6 +9,30 @@ Vector::Vector(real x, real y, real z) : x(x), y(y), z(z), dimensao(3), coord(co
 
 Vector::Vector(real x, real y, real z, real w) : x(x), y(y), z(z), w(w), dimensao(4), coord(coordenadas()) {}
 
+Vector::Vector(vetor v){
+    dimensao = v.size();
+
+    switch (dimensao){
+        case 2:
+            x = v[0];
+            y = v[1];
+            break;
+        case 3:
+            x = v[0];
+            y = v[1];
+            z = v[2];
+            break;
+        case 4:
+            x = v[0];
+            y = v[1];
+            z = v[2];
+            w = v[3];
+            break;
+    }
+
+    atualiza();
+}
+
 Vector::~Vector(){}
 
 vetor Vector::coordenadas(){
@@ -80,5 +104,19 @@ real Vector::angulo(real produtoEscalar, real normaV1, real normaV2){
 
 real Vector::angulo(Vector& v2){
     return angulo(prodEscalar(v2), norma(), v2.norma());
+}
+
+real Vector::distancia(Vector& v1, Vector& v2){
+    if (v1.dimensao != v2.dimensao) return NAN;
+
+    
+
+    Vector a = Vector(0, 1, 2);
+
+    return Vector::norma(a);
+}
+
+real Vector::distancia(Vector& v2){
+
 }
 

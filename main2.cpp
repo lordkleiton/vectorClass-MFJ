@@ -29,7 +29,11 @@ int main(int argc, char const *argv[])
 
     divisor;
 
+    vetor a = {1, 2, 3, 5};
 
+    Vector teste = Vector(a);
+
+    teste.imprime();
 
     return 0;
 }
