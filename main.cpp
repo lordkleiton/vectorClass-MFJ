@@ -6,45 +6,91 @@ using namespace std;
 #define divisor cout << "----------------------------" << endl;
 
 void testes(){
-    Vector v1 = Vector();
-    Vector v2 = Vector(1.0, 2.0);
-    Vector v3 = Vector(1.0, 2.0, 3.0);
-    Vector v4 = Vector(2.0, 2.0, 2.0);
-    Vector v5 = Vector(1.1, 2.1, 3.1, 4.5);
+    Vector v1 = Vector(1, 2, 3);
+    Vector v2 = Vector(3, 2, 1);
 
-    v3.imprime();
+    Vector v;
+    real r;
 
+    cout << "Soma:" << endl << endl;
+    v = v1 + v2;
+    v.imprime();
     divisor;
-
-    cout << "Norma do v3: " << v3.norma() << endl;
-
+    cout << "Subtração v1 - v2:" << endl << endl;
+    v = v1 - v2;
+    v.imprime();
     divisor;
-
-    cout << "Produto escalar entre v3 e v4: " << v3.prodEscalar(v4) << endl;
-
+    cout << "Subtração v2 - v1:" << endl << endl;
+    v = v2 - v1;
+    v.imprime();
     divisor;
-
-    cout << "Angulo entre v3 e v4: " << v3.angulo(v4) << endl;
-
+    cout << "Multiplicação:" << endl << endl;
+    v = v1 * v2;
+    v.imprime();
     divisor;
-
-    vetor a = {2, 1};
-
-    Vector teste = Vector(a);
-
-    teste.imprime();
-
+    cout << "Divisão v1 / v2:" << endl << endl;
+    v = v1 / v2;
+    v.imprime();
     divisor;
-
-    cout << "Distancia entre os vetores v2 e teste: " << v2.distancia(teste) << endl;
-
+    cout << "Divisão v2 / v1:" << endl << endl;
+    v = v2 / v1;
+    v.imprime();
     divisor;
-
-    Vector z = teste / 2;
-
-    z.imprime();
-
+    cout << "Norma v1:" << endl << endl;
+    r = v1.norma();
+    cout << r << endl;
     divisor;
+    cout << "Norma v2:" << endl << endl;
+    r = v2.norma();
+    cout << r << endl;
+    divisor;
+    cout << "Distância entre v1 e v2:" << endl << endl;
+    r = v1.distancia(v2);
+    cout << r << endl;
+    divisor;
+    cout << "v1 normalizado:" << endl << endl;
+    v = v1.normalizado();
+    v.imprime();
+    divisor;
+    cout << "v2 normalizado:" << endl << endl;
+    v = v2.normalizado();
+    v.imprime();
+    divisor;
+    cout << "v1 * 5:" << endl << endl;
+    v = v1 * 5;
+    v.imprime();
+    divisor;
+    cout << "v2 * 5:" << endl << endl;
+    v = v2 * 5;
+    v.imprime();
+    divisor;
+    cout << "v1 / 5:" << endl << endl;
+    v = v1 / 5;
+    v.imprime();
+    divisor;
+    cout << "v2 / 5:" << endl << endl;
+    v = v2 / 5;
+    v.imprime();
+    divisor;
+    cout << "Produto escalar v1 x v2:" << endl << endl;
+    v = v1 ^ v2;
+    v.imprime();
+    divisor;
+    cout << "Produto escalar v2 x v1:" << endl << endl;
+    v = v2 ^ v1;
+    v.imprime();
+    divisor;
+    cout << "Projeção de v1 sobre v2:" << endl << endl;
+    v = v1.projecao(v2);
+    v.imprime();
+    divisor;
+    cout << "Projeção de v2 sobre v1:" << endl << endl;
+    v = v2.projecao(v1);
+    v.imprime();
+    divisor;
+    cout << "Ângulo entre v1 e v2:" << endl << endl;
+    r = v1.angulo(v2);
+    cout << r << "º" << endl << endl;
 }
 
 void operacao(Vector& v1, Vector& v2, int o){
