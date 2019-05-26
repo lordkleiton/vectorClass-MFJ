@@ -103,11 +103,20 @@ int main(int argc, char const *argv[])
     Vector aa = Vector(1.0, 7.0, 0.0);
     Vector bb = Vector(2.0, -3.0, 0.0);
 
+    Vector aaa = Vector(1.0, 2.0, -3.0);
+    Vector bbb = Vector(2.0, 1.0, -2.0);
+
     Vector uh = aa ^ bb;
 
     cout << uh.getCoordenadas()[0] << endl;
     cout << uh.getCoordenadas()[1] << endl;
     cout << uh.getCoordenadas()[2] << endl;
+
+    Vector f = uh.getProjVetores(aaa, bbb);
+
+    cout << f.getCoordenadas()[0] << endl;
+    cout << f.getCoordenadas()[1] << endl;
+    cout << f.getCoordenadas()[2] << endl;
 
     return 0;
 }

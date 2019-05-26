@@ -20,8 +20,8 @@ Implemente uma classe encapsulando vetores em R3
 - [x] produto por escalar
 - [x] divisão por escalar
 - [x] produto escalar
-- [] produto vetorial
-- [] projeção de vetor sobre outro
+- [x] produto vetorial
+- [x] projeção de vetor sobre outro
 - [x] ângulo entre dois vetores
 - [x] constantes de classe
 

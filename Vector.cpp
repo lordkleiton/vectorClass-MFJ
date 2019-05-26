@@ -153,5 +153,17 @@ Vector operator^(const Vector &v1, const Vector &v2){
     return Vector((p1[1] * p2[2] - p1[2] * p2[1]), (p1[2] * p2[0] - p1[0] * p2[2]), (p1[0] * p2[1] - p1[1] * p2[0]));
 }
 
+Vector Vector::getProjVetores(const Vector &v1, const Vector &v2){
+    Vector a1 = v1;
+    Vector a2 = v2;
+
+    array<real, 3> p1 = a1.getCoordenadas();
+    array<real, 3> p2 = a2.getCoordenadas();
+
+    real s = getProdEscalar(p1, p2) / pow(getNorma(p2[0], p2[1], p2[2]), 2);
+
+    return a2 * s;
+}
+
 //destrutor
 Vector::~Vector(){}
