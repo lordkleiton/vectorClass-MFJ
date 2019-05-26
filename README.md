@@ -28,4 +28,4 @@ Implemente uma classe encapsulando vetores em R3
 ## Desafio
 
 - [] facilidade de i/o
-- [] vetores 2d e 4d
+- [x] vetores 2d e 4d
